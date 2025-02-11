@@ -6,8 +6,16 @@ authors = ["Artem Kindiak <artiomkindiak@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.12"
+dagster = "^1.9.13"
+dagster-webserver = "^1.9.13"
+dagster-dbt = "^0.25.13"
+dagster-dlt = "^0.25.13"
 
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.6"
+pre-commit = "^4.1.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,0 +1,40 @@
+# Guidance points:
+# https://github.com/pre-commit/pre-commit-hooks
+
+default_language_version:
+  python: python3.11
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.6.0
+  hooks:
+  - id: check-toml
+  - id: detect-private-key
+    exclude: '^deploy/k8s/local/'
+  - id: name-tests-test
+    args: [
+      --pytest-test-first
+    ]
+
+# x10-x100 faster substitute of flake8, isort and others.
+# https://github.com/astral-sh/ruff-pre-commit
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.3.7
+  hooks:
+    # Run the linter.
+    - id: ruff
+      types_or: [ python, pyi, jupyter ]
+      args: [
+        --exit-non-zero-on-fix
+      ]
+    # Run the formatter.
+    - id: ruff-format
+      types_or: [ python, pyi, jupyter ]
+
+# https://github.com/python-poetry/poetry
+- repo: https://github.com/python-poetry/poetry
+  rev: '1.8.2'
+  hooks:
+  - id: poetry-check
+
+# After installing all requirements with poetry install you need run "pre-commit install" for adding pre-commit hooks
+# to local .git. For more details, feel free to check README.md file, section: ## Code health.
