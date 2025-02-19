@@ -11,6 +11,10 @@ dagster = "^1.9.13"
 dagster-webserver = "^1.9.13"
 dagster-dbt = "^0.25.13"
 dagster-dlt = "^0.25.13"
+dlt = {version = ">=1.6.1", extras = ["filesystem", "sql-database", "parquet", "postgres", "pandas"]}
+dagster-postgres = "^0.25.13"
+snowflake-sqlalchemy = "^1.7.3"
+pandas = "^2.2.3"
 
 
 [tool.poetry.group.dev.dependencies]

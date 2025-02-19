@@ -1,0 +1,4 @@
+load_from:
+  - python_file:
+      relative_path: src/blackboard_data/definitions.py
+      location_name: blackboard_data
