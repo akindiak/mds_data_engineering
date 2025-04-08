@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: stg__persons
+  - name: stg__courses
+  - name: stg__person_courses
+

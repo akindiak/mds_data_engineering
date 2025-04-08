@@ -1,0 +1,20 @@
+version: 2
+sources:
+  - name: blackboard_raw_data
+    schema: blackboard_data
+    tables:
+      - name: activity
+      - name: attempt
+      - name: course
+      - name: course_item
+      - name: grade
+      - name: gradebook
+      - name: person
+      - name: person_course
+      - name: submission
+      - name: term
+
+  - name: transformed_data
+    schema: blackboard_data
+    tables:
+      - name: dlt_processed_load_ids

@@ -6,6 +6,7 @@ import sqlalchemy as sa
 from sqlalchemy.sql import sqltypes
 from snowflake.sqlalchemy import TIMESTAMP_LTZ
 from dlt import pipeline
+from src.blackboard_data.configs import BLACKBOARD_DATA_TABLES_TO_LOAD
 
 
 def type_adapter_callback(sql_type):
@@ -46,7 +47,8 @@ def gen_table_resource(table_name):
         table_adapter_callback=add_max_timestamp,
         type_adapter_callback=type_adapter_callback,
         incremental=dlt.sources.incremental(
-            "_max_timestamp", initial_value=pendulum.DateTime(1970, 1, 1, 0, 0, 0)
+            "_max_timestamp",
+            initial_value=pendulum.DateTime(1970, 1, 1, 0, 0, 0, tzinfo=pendulum.UTC),
         ),
     )
     return resource
@@ -54,8 +56,7 @@ def gen_table_resource(table_name):
 
 @dlt.source(parallelized=True)
 def snowflake_data_source():
-    tables_to_load = ["person", "course", "person_course", "attempt"]
-    for table_name in tables_to_load:
+    for table_name in BLACKBOARD_DATA_TABLES_TO_LOAD:
         yield gen_table_resource(table_name)
 
 

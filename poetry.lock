@@ -905,6 +905,24 @@ files = [
 ]
 
 [[package]]
+name = "dbt-postgres"
+version = "1.9.0"
+description = "The set of adapter protocols and base functionality that supports integration with dbt-core"
+optional = false
+python-versions = ">=3.9.0"
+files = [
+    {file = "dbt_postgres-1.9.0-py3-none-any.whl", hash = "sha256:c85d1adb419251ac989e5f720fdbb964aa6c280da7739dc8c48d44e6f45d354a"},
+    {file = "dbt_postgres-1.9.0.tar.gz", hash = "sha256:b0574e9e1e66d8a5cd627b1d464ec0278eef7342f0b5babe4f987eee9d02a143"},
+]
+
+[package.dependencies]
+agate = ">=1.0,<2.0"
+dbt-adapters = ">=1.7.0,<2.0"
+dbt-common = ">=1.0.4,<2.0"
+dbt-core = ">=1.8.0"
+psycopg2-binary = ">=2.9,<3.0"
+
+[[package]]
 name = "dbt-semantic-interfaces"
 version = "0.7.4"
 description = "The shared semantic layer definitions that dbt-core and MetricFlow use"
@@ -4761,4 +4779,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.12"
-content-hash = "8825c21fde239e3d4cbc785eb27d52cc518e16b5b5a588d1c140cc0565a840a8"
+content-hash = "1d32ad136c97c9628b94699054437f47b7de5ba038c3e1f0134d4e525cef0643"

@@ -1,6 +1,7 @@
 # flake8: noqa
 import dlt
 from dlt.sources.filesystem import filesystem, read_csv
+from src.blackboard_data.configs import BLACKBOARD_DATA_TABLES_TO_LOAD
 
 
 def gen_files_resource(entity):
@@ -15,8 +16,7 @@ def gen_files_resource(entity):
 
 @dlt.source(parallelized=True)
 def datalake_source():
-    tables_to_load = ["person", "course", "person_course", "attempt"]
-    for table_name in tables_to_load:
+    for table_name in BLACKBOARD_DATA_TABLES_TO_LOAD:
         yield gen_files_resource(table_name)
 
 

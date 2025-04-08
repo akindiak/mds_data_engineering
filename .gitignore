@@ -171,3 +171,9 @@ cython_debug/
 .pypirc
 
 .idea/
+
+# Dagster
+.logs_queue/
+.nux/
+logs/
+storage/

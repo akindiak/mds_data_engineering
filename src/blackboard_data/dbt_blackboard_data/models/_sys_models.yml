@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: dlt_processed_load_ids
+    description: "This table contains all processed load ids for incremental loading"
+  - name: dlt_active_load_ids
+    description: "This table contains load ids which should be processed during incremental loading"
+  - name: _dlt_loads
+    description: "Created by DLT. Tracks completed loads"
+    columns:
+      - name: load_id
+      - name: schema_name
+      - name: status
+      - name: inserted_at
+      - name: schema_version_hash

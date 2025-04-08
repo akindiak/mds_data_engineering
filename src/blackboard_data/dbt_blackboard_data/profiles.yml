@@ -1,0 +1,13 @@
+dbt_blackboard_data:
+  outputs:
+    prod:
+      dbname: "{{ env_var('DESTINATION__POSTGRES__CREDENTIALS__DATABASE') }}"
+      host: "{{ env_var('DESTINATION__POSTGRES__CREDENTIALS__HOST') }}"
+      password: "{{ env_var('DESTINATION__POSTGRES__CREDENTIALS__PASSWORD') }}"
+      port: "{{ env_var('DESTINATION__POSTGRES__CREDENTIALS__PORT') | int }}"
+      schema: public
+      threads: 4
+      type: "postgres"
+      user: "{{ env_var('DESTINATION__POSTGRES__CREDENTIALS__USERNAME') }}"
+      retries: 2
+  target: prod
